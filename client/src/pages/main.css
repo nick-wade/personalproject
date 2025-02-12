@@ -1,0 +1,4 @@
+.bg-gray-200 {
+    --tw-bg-opacity: 1;
+    background-color: hsl(var(--colors-gray-200)/var(--tw-bg-opacity))
+}
