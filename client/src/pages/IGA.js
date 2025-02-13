@@ -4,6 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import './main.css';
+import Navbar from '../components/Navbar';
 
 const Products_IGA = () => {
     const [products, setProducts] = useState([]);
@@ -17,6 +18,7 @@ const Products_IGA = () => {
 
     return (
         <div className="container mx-auto p-4">
+            <Navbar />
             <h1 className="text-2xl font-bold mb-4">IGA Specials</h1>
             
             <Swiper

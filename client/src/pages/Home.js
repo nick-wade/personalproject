@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import '../css/navbar.css';
 
-
 const Home = () => {
     return(
         <div>

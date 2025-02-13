@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import Navbar from '../components/Navbar';
 
 const Products_ALDI = () => {
     const [products, setProducts] = useState([]);
@@ -16,7 +17,8 @@ const Products_ALDI = () => {
 
     return(
         <div className='container mx-auto p-4'>
-            <p>getting aldi products.. LOOOL</p>
+            <Navbar />
+            <p>getting aldi products.. LOOOL not actually</p>
             <Swiper
                 modules={[Navigation]}
                 spaceBetween={20}
