@@ -21,6 +21,12 @@ app.use((req, res, next) => {
 });
 const PORT = process.env.PORT || 8080;
 
+const dataFolderExists = (filePath) => {
+    if (!fs.existsSync(dirPath)) {
+        fs.mkdirSync(dirPath, { recursive: true });
+    }
+};
+
 const readJSONFile = (filePath) => {
     try {
         const data = fs.readFileSync(filePath, 'utf8');
@@ -32,8 +38,11 @@ const readJSONFile = (filePath) => {
 };
 
 app.get('/api/iga', async (req, res) => {
+    const dataDirectory = path.join(__dirname, 'data');
     const igaDataPath = path.join(__dirname, 'data', 'iga.json');
     res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
+    
+    ensureDirectoryExists(dataDirectory);
 
     if (fs.existsSync(igaDataPath)) {
         const data = readJSONFile(igaDataPath);
@@ -41,7 +50,6 @@ app.get('/api/iga', async (req, res) => {
             return res.json(data);
         }
     }
-
     try {
         const data = await scrapeIGA();
         res.json(data);
@@ -51,9 +59,13 @@ app.get('/api/iga', async (req, res) => {
 });
 
 app.get('/api/aldi', async (req, res) => {
+    const dataDirectory = path.join(__dirname, 'data');
     const aldiDataPath = path.join(__dirname, 'data', 'ALDI.json');
     res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
 
+
+    ensureDirectoryExists(dataDirectory);
+    
     if (fs.existsSync(aldiDataPath)) {
         const data = readJSONFile(aldiDataPath);
         if (data) {
