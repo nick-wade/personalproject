@@ -54,5 +54,5 @@ app.get('/api/aldi', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error scraping ALDI data', error });
     }
-});peALDI();
+});
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
