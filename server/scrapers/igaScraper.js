@@ -1,11 +1,13 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
+const executablePath = require('puppeteer').executablePath();
 const fs = require('fs');
 const path = require('path');
 
 async function scrapeIGA() {
     const browser = await puppeteer.launch({
         headless: 'new',
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        executablePath: executablePath(),
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
     await page.goto('https://www.igashop.com.au/specials/1', { waitUntil: 'networkidle2' });

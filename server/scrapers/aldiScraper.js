@@ -1,11 +1,13 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
+const executablePath = require('puppeteer').executablePath();
 const fs = require('fs');
 const path = require('path');
 
 async function scrapeALDI() {
     const browser = await puppeteer.launch({
         headless: 'new',
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        executablePath: executablePath(),  // Use the bundled Chromium
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
     const specialBuysDate = '2025-04-30'; // Change dynamically if needed
