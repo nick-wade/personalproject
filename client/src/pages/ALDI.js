@@ -9,7 +9,7 @@ const Products_ALDI = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/aldi') // Call backend API
+        fetch('https://personalproject-m7aa.onrender.com/api/aldi') // Call backend API
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching products:', error));

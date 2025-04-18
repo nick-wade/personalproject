@@ -10,7 +10,7 @@ const Products_IGA = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/iga') // Call backend API
+        fetch('https://personalproject-m7aa.onrender.com/api/iga') // Call backend API
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching products:', error));

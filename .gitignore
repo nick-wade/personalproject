@@ -33,7 +33,8 @@ dist-ssr
 /coverage
 
 # production
-/build
+/client/build
+/server/data
 
 # misc
 .DS_Store
