@@ -36,11 +36,13 @@ const Products_IGA = () => {
             >
                 {products.map((product, index) => (
                     <SwiperSlide key={index}>
-                        <div className="bg-gray-200">
-                            <img src={product.image} alt={product.name} className="w-full h-40 object-cover" />
+                        <div className="border p-4 rounded-lg shadow-lg text-center bg-white">
                             <h2 className="text-lg font-bold mt-2">{product.name}</h2>
-                            <p className="text-gray-500">was {product.formerPrice}</p>
-                            <p className="text-red-500 font-bold">{product.currentPrice}</p>
+                            <p className="text-sm text-gray-600">{product.brand}</p>
+                            <p className="text-gray-500">Price: {product.price}</p>
+                            <a href={product.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                                View Product
+                            </a>
                         </div>
                     </SwiperSlide>
                 ))}

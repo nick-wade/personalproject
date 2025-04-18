@@ -4,7 +4,7 @@ const scrapeIGA = require('./scrapers/igaScraper');
 const scrapeALDI = require('./scrapers/aldiScraper');
 
 const app = express();
-app.use(cors());
+app.use(cors({origin: 'https://aussiefrugal.com'}));
 const PORT = process.env.PORT || 8080;
 
 const readJSONFile = (filePath) => {
