@@ -4,7 +4,12 @@ const scrapeIGA = require('./scrapers/igaScraper');
 const scrapeALDI = require('./scrapers/aldiScraper');
 
 const app = express();
-app.use(cors({origin: 'https://aussiefrugal.com'}));
+const corsOptions ={
+    origin:'http://aussiefrugal.com', 
+    credentials:true, 
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 const PORT = process.env.PORT || 8080;
 
 const readJSONFile = (filePath) => {
@@ -20,7 +25,7 @@ const readJSONFile = (filePath) => {
 app.get('/api/iga', async (req, res) => {
     const igaDataPath = path.join(__dirname, 'data', 'iga.json');
     res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
-    // Check if JSON file exists
+
     if (fs.existsSync(igaDataPath)) {
         const data = readJSONFile(igaDataPath);
         if (data) {
@@ -39,7 +44,7 @@ app.get('/api/iga', async (req, res) => {
 app.get('/api/aldi', async (req, res) => {
     const aldiDataPath = path.join(__dirname, 'data', 'ALDI.json');
     res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
-    // Check if JSON file exists
+
     if (fs.existsSync(aldiDataPath)) {
         const data = readJSONFile(aldiDataPath);
         if (data) {
