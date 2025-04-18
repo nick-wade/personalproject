@@ -2,14 +2,23 @@ const express = require('express');
 const cors = require('cors');
 const scrapeIGA = require('./scrapers/igaScraper');
 const scrapeALDI = require('./scrapers/aldiScraper');
+const path = require('path');
+const fs = require('fs');
 
-const app = express();
 const corsOptions ={
     origin:'http://aussiefrugal.com', 
     credentials:true, 
     optionSuccessStatus:200
 }
+const app = express();
+
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 const PORT = process.env.PORT || 8080;
 
 const readJSONFile = (filePath) => {
