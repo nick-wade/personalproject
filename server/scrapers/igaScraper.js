@@ -1,12 +1,10 @@
-const puppeteer = require('puppeteer-core');
-const executablePath = require('puppeteer').executablePath();
+const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
 async function scrapeIGA() {
     const browser = await puppeteer.launch({
         headless: 'new',
-        executablePath: executablePath(),
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
