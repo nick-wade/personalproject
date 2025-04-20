@@ -10,7 +10,10 @@ const Products_IGA = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://personalproject-m7aa.onrender.com/api/iga') // Call backend API
+        fetch('https://personalproject-m7aa.onrender.com/api/iga', {
+            credentials: 'include' // Add this to match your CORS configuration
+        })
+        
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching products:', error));

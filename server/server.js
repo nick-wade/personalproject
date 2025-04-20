@@ -5,11 +5,10 @@ const scrapeALDI = require('./scrapers/aldiScraper');
 const path = require('path');
 const fs = require('fs');
 
-const corsOptions ={
-    origin:'https://aussiefrugal.com', 
-    credentials:true, 
-    optionSuccessStatus:200
-}
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200
+  };
 const app = express();
 
 app.use(cors(corsOptions));
@@ -23,11 +22,11 @@ app.use((req, res, next) => {
   });
 const PORT = process.env.PORT || 8080;
 
-const dataFolderExists = (filePath) => {
-    if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath, { recursive: true });
+const dataFolderExists = (folderPath) => {
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true });
     }
-};
+  };
 
 const readJSONFile = (filePath) => {
     try {
