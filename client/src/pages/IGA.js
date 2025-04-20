@@ -8,16 +8,19 @@ import Navbar from '../components/Navbar';
 
 const Products_IGA = () => {
     const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('https://personalproject-m7aa.onrender.com/api/iga', {
-            credentials: 'include' // Add this to match your CORS configuration
+        fetch('http://localhost:8080/api/iga', {
         })
         
             .then(response => response.json())
             .then(data => setProducts(data))
             .catch(error => console.error('Error fetching products:', error));
     }, []);
+    console.log(products);
+    // Check if products are loaded and not empty
 
     return (
         <div className="container mx-auto p-4">

@@ -6,7 +6,7 @@ const Home = () => {
     return(
         <div>
             <Navbar />
-            <p>This is the front page to my react powered website. i gotta add some stuff</p>
+            <p>This is the front page to my react powered website. i gotta add some stuff...</p>
         </div>
     )
 };

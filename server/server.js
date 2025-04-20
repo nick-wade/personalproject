@@ -14,7 +14,7 @@ const app = express();
 app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Replace with your frontend URL
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -47,6 +47,7 @@ app.get('/api/iga', async (req, res) => {
     if (fs.existsSync(igaDataPath)) {
         const data = readJSONFile(igaDataPath);
         if (data) {
+            console.log(data)
             return res.json(data);
         }
     }
