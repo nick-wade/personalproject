@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const corsOptions ={
-    origin:'http://aussiefrugal.com', 
+    origin:'https://aussiefrugal.com', 
     credentials:true, 
     optionSuccessStatus:200
 }
@@ -16,9 +16,11 @@ app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     next();
-});
+  });
 const PORT = process.env.PORT || 8080;
 
 const dataFolderExists = (filePath) => {
@@ -40,9 +42,8 @@ const readJSONFile = (filePath) => {
 app.get('/api/iga', async (req, res) => {
     const dataDirectory = path.join(__dirname, 'data');
     const igaDataPath = path.join(__dirname, 'data', 'iga.json');
-    res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
     
-    ensureDirectoryExists(dataDirectory);
+    dataFolderExists(dataDirectory);
 
     if (fs.existsSync(igaDataPath)) {
         const data = readJSONFile(igaDataPath);
@@ -61,10 +62,7 @@ app.get('/api/iga', async (req, res) => {
 app.get('/api/aldi', async (req, res) => {
     const dataDirectory = path.join(__dirname, 'data');
     const aldiDataPath = path.join(__dirname, 'data', 'ALDI.json');
-    res.setHeader('Access-Control-Allow-Origin', 'https://aussiefrugal.com');
-
-
-    ensureDirectoryExists(dataDirectory);
+    dataFolderExists(dataDirectory);
     
     if (fs.existsSync(aldiDataPath)) {
         const data = readJSONFile(aldiDataPath);
@@ -72,8 +70,6 @@ app.get('/api/aldi', async (req, res) => {
             return res.json(data);
         }
     }
-
-
     try {
         const data = await scrapeALDI();
         res.json(data);
