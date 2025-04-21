@@ -1,0 +1,156 @@
+/* Main Container */
+.iga-container {
+    background-color: white;
+    min-height: 100vh;
+  }
+  
+  /* Navigation - Full Width */
+  .store-nav {
+    display: flex;
+    background-color: #333;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Navigation Content Wrapper */
+  .nav-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 20px;
+  }
+  
+  .store-nav-link {
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .store-nav-link.active {
+    font-weight: bold;
+  }
+  
+  /* Content Container */
+  .content-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Page Title */
+  .page-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0;
+  }
+  
+  /* Product List */
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Individual Product */
+  .product-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
+    position: relative;
+  }
+  
+  /* Discount Badge */
+  .discount-badge {
+    display: inline-block;
+    background-color: #e02020;
+    color: white;
+    padding: 4px 8px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  /* Product Image */
+  .product-image-container {
+    margin-bottom: 15px;
+  }
+  
+  .product-image {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+  }
+  
+  /* Product Details */
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .product-name {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .former-price {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .current-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* Action Buttons */
+  .product-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .wishlist-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .heart-icon {
+    font-size: 24px;
+    color: #888;
+  }
+  
+  .heart-icon.filled {
+    color: #e02020;
+  }
+  
+  .add-to-cart-button {
+    padding: 6px 15px;
+    border: 1px solid #666;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .special-tag {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Loading and Error States */
+  .loading-container, 
+  .error-container {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+  }
+  
+  .error-container {
+    color: #e02020;
+  }

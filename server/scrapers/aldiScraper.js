@@ -19,7 +19,7 @@ async function scrapeALDI() {
             return {
                 name: tile.querySelector('.product-tile__name')?.innerText.trim() || 'No name',
                 brand: tile.querySelector('.product-tile__brandname')?.innerText.trim() || '',
-                price: tile.querySelector('.base-price--product-tile__price')?.innerText.trim() || 'No price',
+                price: tile.querySelector('span.base-price__regular')?.innerText.trim() || 'No price',
                 url: linkElement ? baseURL + linkElement.getAttribute('href') : '',
             };
         });
